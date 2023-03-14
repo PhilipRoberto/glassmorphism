@@ -1,37 +1,39 @@
-import React, { useEffect } from "react";
-import VanillaTilt from "vanilla-tilt";
+import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
 
-// Utils import....
 import philip from "./utils/philip.jpg";
+import facebook from "./utils/facebook.png";
+import twitter from "./utils/twitter.png";
+import telegram from "./utils/telegram.png";
 
-export default function App () {
-
-  useEffect (() => {
-    VanillaTilt.init();
-  });
-  
+function Glasshouse() {
   return (
-    <div className="App App-Container">
-      <div className="main main-container">
-        <div className="glass-heading">
-          <h1>Glassmorphic Design</h1>
+    <div className="Appm App-Container">
+      <div className="card">
+        <img src={philip} alt="philip_oyetunde" />
+        <h2>Philip Oyetunde</h2>
+        <p>I am a software engineer, frontend developer</p>
+        <div className="links">
+          <Link to="https://www.facebook.com">
+            <img src={facebook} alt="facebook-logo" />
+          </Link>
+          <Link to="https://www.twitter.com">
+            <img src={twitter} alt="twitter-logo" />
+          </Link>
+          <Link to="https://www.telegram.com">
+            <img src={telegram} alt="telegram-logo" />
+          </Link>
         </div>
-          <div className="card card1" data-tilt>
-            <div className="cards-details">
-              <div className="card-heading">
-                <div className="card-name">
-                  <h1>Philip Oyetunde</h1>
-                </div>
-                <div className="card-img">
-                  <img src={philip} alt="Philip_Oyetunde" />
-                </div>
-              </div>
-              <div className="card-info bio">
-                <p>I am Philip Oyetunde, and I am learning software engineering in Frontend web development...</p>
-              </div>
-            </div>
-          </div>
+        <Link to="#" className="btn">message me</Link>
       </div>
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Glasshouse />} />
+    </Routes>
   );
 };
